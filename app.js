@@ -206,7 +206,7 @@ function renderCharts(byUser, rankingResults) {
   });
   const { dates, sweetsByDayByUser } = buildCumulativeSweets(rankingResults, normalized.users, visible);
   const labels = dates.map(formatDate);
-  const lineColors = ["#ffad33", "#ff7138", "#ffd166", "#e85d04", "#f4a261", "#fb8500", "#e76f51", "#ffc857", "#d95d39"];
+  const lineColors = ["#36a2eb", "#ff6384", "#4bc0c0", "#9966ff", "#ff9f40", "#4caf50", "#ffd166", "#e76f51", "#5c6bc0"];
   const trendOptions = chartBaseOptions();
   trendOptions.elements = { line: { tension: .15, borderWidth: 2.5 }, point: { radius: 2.5, hoverRadius: 5, borderWidth: 0 } };
   trendOptions.plugins.legend = {
@@ -230,6 +230,16 @@ function renderCharts(byUser, rankingResults) {
     }))},
     options: trendOptions
   });
+  const hasDatasets = charts.trendChart.data.datasets.length > 0;
+  $("hideTrendDatasets").disabled = !hasDatasets;
+  $("showTrendDatasets").disabled = !hasDatasets;
+}
+
+function setTrendDatasetsVisibility(visible) {
+  const chart = charts.trendChart;
+  if (!chart) return;
+  chart.data.datasets.forEach((_, index) => chart.setDatasetVisibility(index, visible));
+  chart.update();
 }
 
 function buildCumulativeSweets(results, users, visibleUsers) {
@@ -307,5 +317,8 @@ $("jsonFile").addEventListener("change", async event => {
     event.target.value = "";
   }
 });
+
+$("hideTrendDatasets").addEventListener("click", () => setTrendDatasetsVisibility(false));
+$("showTrendDatasets").addEventListener("click", () => setTrendDatasetsVisibility(true));
 
 render();

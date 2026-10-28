@@ -1,0 +1,20 @@
+
+# Visual Studio
+.vs/
+
+# Arquivos de build
+[Bb]in/
+[Oo]bj/
+
+# Arquivos de usuário e configurações locais
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Logs
+*.log
+
+# Arquivos temporários
+*.tmp
+*.temp

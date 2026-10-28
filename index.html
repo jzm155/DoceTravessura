@@ -100,6 +100,10 @@
         <article id="evolucao" class="panel trend-panel">
           <div class="panel-heading">
             <div><div class="section-kicker">STORYTELLING</div><h2>Doces acumulados por pessoa</h2><p>Quantidade de doces acumulada por participante até cada dia.</p></div>
+            <div class="trend-toggle-actions">
+              <button id="hideTrendDatasets" class="reset-btn trend-toggle-btn" type="button" aria-controls="trendChart">Esconder todos</button>
+              <button id="showTrendDatasets" class="reset-btn trend-toggle-btn" type="button" aria-controls="trendChart">Mostrar todos</button>
+            </div>
           </div>
           <div class="chart-wrap trend-chart"><canvas id="trendChart" aria-label="Quantidade acumulada de doces por participante ao longo dos dias"></canvas></div>
         </article>
