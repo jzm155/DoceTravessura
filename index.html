@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101522">
+  <title>Doçuras & Travessuras — Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-mark">✦</div>
+        <div><strong>Doçuras<span>&</span></strong><small>TRAVESSURAS</small></div>
+      </div>
+      <div class="sidebar-label">VISÃO GERAL</div>
+      <a class="nav-item active" href="#overview"><span class="nav-icon">▦</span> Dashboard</a>
+      <div class="sidebar-bottom">
+        <div class="sidebar-orb orb-one"></div><div class="sidebar-orb orb-two"></div>
+        <div class="side-note"><span class="note-star">✧</span><strong>Doce ou travessura?</strong><p>Explore os resultados e descubra quem está dominando a brincadeira.</p></div>
+        <div class="sidebar-foot">DASHBOARD • OUTUBRO 2026</div>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <div class="mobile-brand"><span class="brand-mark">✦</span><strong>Doçuras <span>&</span> Travessuras</strong></div>
+        <div class="breadcrumb">Análises <span>/</span> <strong>Visão geral</strong></div>
+        <div class="top-actions">
+          <span class="data-status"><i></i> Dados carregados</span>
+          <label class="import-btn" for="jsonFile">↥ <span>Importar JSON</span></label>
+          <input id="jsonFile" type="file" accept=".json,application/json" hidden>
+        </div>
+      </header>
+
+      <section id="overview" class="page-heading">
+        <div>
+          <div class="eyebrow"><span class="eyebrow-line"></span> PAINEL DE RESULTADOS</div>
+          <h1>Doçuras <span>&</span> Travessuras</h1>
+          <p>Acompanhe os resultados, compare participantes e descubra as maiores sequências.</p>
+        </div>
+        <div class="date-pill"><span>◷</span> Outubro, 2026</div>
+      </section>
+
+      <section class="kpi-grid" aria-label="Indicadores gerais">
+        <article class="kpi-card kpi-total">
+          <div class="kpi-top"><span class="kpi-label">Total de jogadas</span><span class="kpi-icon">◉</span></div>
+          <div class="kpi-value" id="totalPlays">—</div><div class="kpi-foot"><span class="mini-dot neutral"></span> Resultados registrados</div>
+          <div class="kpi-decoration">✦</div>
+        </article>
+        <article class="kpi-card kpi-sweets">
+          <div class="kpi-top"><span class="kpi-label">Doces</span><span class="kpi-icon">✧</span></div>
+          <div class="kpi-value" id="totalSweets">—</div><div class="kpi-foot"><span class="mini-dot sweet"></span><span id="sweetPercent">—</span> das jogadas</div>
+          <div class="kpi-decoration">✧</div>
+        </article>
+        <article class="kpi-card kpi-tricks">
+          <div class="kpi-top"><span class="kpi-label">Travessuras</span><span class="kpi-icon">☾</span></div>
+          <div class="kpi-value" id="totalTricks">—</div><div class="kpi-foot"><span class="mini-dot trick"></span><span id="trickPercent">—</span> das jogadas</div>
+          <div class="kpi-decoration">☾</div>
+        </article>
+        <article class="kpi-card kpi-rate">
+          <div class="kpi-top"><span class="kpi-label">Resultado dominante</span><span class="kpi-icon">↗</span></div>
+          <div class="kpi-value smaller" id="dominantResult">—</div><div class="kpi-foot" id="dominantFoot">—</div>
+          <div class="kpi-decoration">✦</div>
+        </article>
+      </section>
+
+      <section class="main-grid ranking-grid">
+        <article id="ranking" class="panel ranking-panel">
+          <div class="panel-heading">
+            <div><div class="section-kicker">PLACAR</div><h2>Ranking de doces</h2><p>Quem acumulou mais resultados de doces?</p></div>
+            <span class="heading-icon sweet-icon">♛</span>
+          </div>
+          <div class="ranking-list" id="rankingList"></div>
+          <div class="panel-bottom-note"><span>✦</span> Ordenado pela quantidade de doces.</div>
+        </article>
+        <article id="trickRanking" class="panel ranking-panel tricks-ranking">
+          <div class="panel-heading">
+            <div><div class="section-kicker">PLACAR</div><h2>Ranking de travessuras</h2><p>Quem acumulou mais resultados de travessura?</p></div>
+            <span class="heading-icon trick-icon">☾</span>
+          </div>
+          <div class="ranking-list" id="trickRankingList"></div>
+          <div class="panel-bottom-note"><span>✦</span> Ordenado pela quantidade de travessuras.</div>
+        </article>
+      </section>
+
+      <section class="story-play-grid">
+        <article id="participantes" class="panel chart-panel">
+          <div class="panel-heading">
+            <div><div class="section-kicker">PARTICIPAÇÃO</div><h2>Jogadas por participante</h2><p>Volume total de resultados, do maior para o menor.</p></div>
+            <span class="heading-icon neutral-icon">◉</span>
+          </div>
+          <div class="chart-wrap bar-chart"><canvas id="playsChart" aria-label="Quantidade geral de jogadas por participante, ordenada da maior para a menor"></canvas></div>
+        </article>
+        <article id="evolucao" class="panel trend-panel">
+          <div class="panel-heading">
+            <div><div class="section-kicker">STORYTELLING</div><h2>Doces acumulados por pessoa</h2><p>Quantidade de doces acumulada por participante até cada dia.</p></div>
+          </div>
+          <div class="chart-wrap trend-chart"><canvas id="trendChart" aria-label="Quantidade acumulada de doces por participante ao longo dos dias"></canvas></div>
+        </article>
+      </section>
+
+      <section class="charts-grid">
+        <article class="panel chart-panel">
+          <div class="panel-heading">
+            <div><div class="section-kicker">TAXA DE SUCESSO</div><h2>Doces por participante</h2><p>Percentual de doces em relação ao total de tentativas.</p></div>
+            <span class="heading-icon sweet-icon">✧</span>
+          </div>
+          <div class="chart-wrap bar-chart"><canvas id="sweetSuccessChart" aria-label="Percentual de doces em relação às tentativas por participante"></canvas></div>
+        </article>
+      </section>
+
+      <section class="streak-section">
+        <div class="section-title-row"><div><div class="section-kicker">SEQUÊNCIAS CONSECUTIVAS</div><h2>As maiores streaks</h2></div><p>Maior sequência sem alternar o resultado.</p></div>
+        <div class="streak-grid">
+          <article class="streak-card sweets-streak">
+            <div class="streak-header"><span class="streak-symbol">✧</span><span class="streak-tag">RECORD DE DOCES</span></div>
+            <div class="streak-number"><strong id="sweetStreakCount">—</strong><span id="sweetStreakUnit">dias seguidos</span></div>
+            <p class="streak-caption">Maior sequência individual de dias com doces.</p>
+            <div class="streak-detail" id="sweetStreakDetail">Calculando sequência...</div>
+          </article>
+          <article class="streak-card tricks-streak">
+            <div class="streak-header"><span class="streak-symbol">☾</span><span class="streak-tag">RECORD DE TRAVESSURAS</span></div>
+            <div class="streak-number"><strong id="trickStreakCount">—</strong><span id="trickStreakUnit">dias seguidos</span></div>
+            <p class="streak-caption">Maior sequência individual de dias com travessuras.</p>
+            <div class="streak-detail" id="trickStreakDetail">Calculando sequência...</div>
+          </article>
+        </div>
+        <p class="streak-footnote">A sequência é calculada por pessoa em dias consecutivos. Em caso de empate, todas as pessoas que alcançaram o recorde são exibidas.</p>
+      </section>
+
+      <footer class="footer"><span>✦ Doçuras & Travessuras</span><span id="footerSummary">Análise local dos dados importados</span></footer>
+    </main>
+  </div>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="app.js"></script>
+</body>
+</html>
