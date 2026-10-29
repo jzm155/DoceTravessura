@@ -1321,6 +1321,54 @@
         "resultado": "travessura",
         "usuario": "J",
         "data": "2026-10-27"
+      },
+	  {
+        "ordem": 213,
+        "resultado": "doces",
+        "usuario": "K",
+        "data": "2026-10-28"
+      },
+	  {
+        "ordem": 214,
+        "resultado": "travessura",
+        "usuario": "L",
+        "data": "2026-10-28"
+      },
+	  {
+        "ordem": 215,
+        "resultado": "doces",
+        "usuario": "G",
+        "data": "2026-10-28"
+      },
+	  {
+        "ordem": 216,
+        "resultado": "doces",
+        "usuario": "J",
+        "data": "2026-10-28"
+      },
+	  {
+        "ordem": 217,
+        "resultado": "travessura",
+        "usuario": "I",
+        "data": "2026-10-28"
+      },
+	  {
+        "ordem": 218,
+        "resultado": "doces",
+        "usuario": "M",
+        "data": "2026-10-28"
+      },
+	  {
+        "ordem": 219,
+        "resultado": "travessura",
+        "usuario": "F",
+        "data": "2026-10-28"
+      },
+	  {
+        "ordem": 220,
+        "resultado": "travessura",
+        "usuario": "H",
+        "data": "2026-10-28"
       }
     ]
   },
