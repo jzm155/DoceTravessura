@@ -10,6 +10,7 @@ Dashboard estático em HTML, CSS e JavaScript para analisar os resultados de Doc
 ## Funcionalidades
 - Indicadores de total de jogadas, doces, travessuras e resultado dominante.
 - Rankings de participantes por quantidade de doces e travessuras.
+- Calendário mensal com resultados diários por participante.
 - Gráfico geral de jogadas por participante, ordenado da maior quantidade para a menor.
 - Gráfico de evolução acumulada por dia (storytelling).
 - Gráfico de taxa de sucesso de doces por participante (doces por tentativas).

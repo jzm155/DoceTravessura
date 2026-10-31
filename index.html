@@ -93,13 +93,38 @@
         </article>
       </section>
 
-      <section class="charts-grid">
+      <section class="calendar-charts-grid">
         <article class="panel chart-panel">
           <div class="panel-heading">
             <div><div class="section-kicker">TAXA DE SUCESSO</div><h2>Doces por participante</h2><p>Percentual de doces em relação ao total de tentativas.</p></div>
             <span class="heading-icon sweet-icon">✧</span>
           </div>
           <div class="chart-wrap bar-chart"><canvas id="sweetSuccessChart" aria-label="Percentual de doces em relação às tentativas por participante"></canvas></div>
+        </article>
+        <article class="panel calendar-panel" aria-labelledby="calendarTitle">
+          <div class="panel-heading calendar-heading">
+            <div>
+              <div class="section-kicker">ACOMPANHAMENTO DIÁRIO</div>
+              <h2 id="calendarTitle">Calendário de resultados</h2>
+              <p>Veja o resultado de cada dia para a pessoa selecionada.</p>
+            </div>
+            <label class="calendar-participant">
+              <span>Participante</span>
+              <select id="calendarParticipant" aria-label="Selecionar participante"></select>
+            </label>
+          </div>
+          <div class="calendar-month" id="calendarMonth"></div>
+          <div class="calendar-weekdays" aria-hidden="true">
+            <span>Dom</span><span>Seg</span><span>Ter</span><span>Qua</span><span>Qui</span><span>Sex</span><span>Sáb</span>
+          </div>
+          <ol class="calendar-grid" id="calendarGrid" aria-label="Resultados diários do participante"></ol>
+          <div class="calendar-footer">
+            <div class="calendar-legend" aria-label="Legenda">
+              <span><span aria-hidden="true">🍬</span> Doce</span>
+              <span><span aria-hidden="true">👻</span> Travessura</span>
+            </div>
+            <p class="calendar-summary" id="calendarSummary" aria-live="polite"></p>
+          </div>
         </article>
       </section>
 

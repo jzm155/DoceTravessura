@@ -1411,6 +1411,90 @@
         "resultado": "travessura",
         "usuario": "N",
         "data": "2026-10-29"
+      },
+      {
+        "ordem": 228,
+        "resultado": "travessura",
+        "usuario": "J",
+        "data": "2026-10-30"
+      },
+      {
+        "ordem": 229,
+        "resultado": "doces",
+        "usuario": "L",
+        "data": "2026-10-30"
+      },
+      {
+        "ordem": 230,
+        "resultado": "doces",
+        "usuario": "K",
+        "data": "2026-10-30"
+      },
+      {
+        "ordem": 231,
+        "resultado": "doces",
+        "usuario": "G",
+        "data": "2026-10-30"
+      },
+      {
+        "ordem": 232,
+        "resultado": "travessura",
+        "usuario": "I",
+        "data": "2026-10-30"
+      },
+      {
+        "ordem": 233,
+        "resultado": "doces",
+        "usuario": "M",
+        "data": "2026-10-30"
+      },
+      {
+        "ordem": 234,
+        "resultado": "travessura",
+        "usuario": "N",
+        "data": "2026-10-30"
+      },
+      {
+        "ordem": 235,
+        "resultado": "doces",
+        "usuario": "L",
+        "data": "2026-10-31"
+      },
+      {
+        "ordem": 236,
+        "resultado": "travessura",
+        "usuario": "I",
+        "data": "2026-10-31"
+      },
+      {
+        "ordem": 237,
+        "resultado": "doces",
+        "usuario": "K",
+        "data": "2026-10-31"
+      },
+      {
+        "ordem": 238,
+        "resultado": "travessura",
+        "usuario": "G",
+        "data": "2026-10-31"
+      },
+      {
+        "ordem": 239,
+        "resultado": "doces",
+        "usuario": "N",
+        "data": "2026-10-31"
+      },
+      {
+        "ordem": 240,
+        "resultado": "doces",
+        "usuario": "M",
+        "data": "2026-10-31"
+      },
+      {
+        "ordem": 241,
+        "resultado": "doces",
+        "usuario": "J",
+        "data": "2026-10-31"
       }
     ]
   },

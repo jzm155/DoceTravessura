@@ -44,7 +44,7 @@ a { color: inherit; text-decoration: none; }
 .streak-record-list { display: grid; gap: 9px; }.streak-record { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 9px 10px; border: 1px solid #f6b94c24; border-radius: 9px; background: #f6b94c08; }.tricks-streak .streak-record { border-color: #a78bfa2b; background: #a78bfa09; }.streak-record-dates { color: #c4cadd; font-size: 10px; text-align: right; }
 .footer { display: flex; justify-content: space-between; border-top: 1px solid #242c3d; padding-top: 20px; margin-top: 34px; color: #66728b; font-size: 10px; }.footer span:first-child { color: #929bb0; font-weight: 600; }
 .toast { position: fixed; right: 22px; bottom: 22px; max-width: 380px; padding: 13px 17px; background: #20283a; color: #edf0f9; border: 1px solid #454f67; border-radius: 11px; box-shadow: 0 14px 45px #0005; opacity: 0; transform: translateY(12px); pointer-events: none; transition: .25s; z-index: 20; font-size: 12px; }.toast.show { opacity: 1; transform: translateY(0); }
-@media (min-width: 1500px) { .main-content { padding-left: 42px; padding-right: 42px; } .kpi-card { min-height: 148px; padding: 20px 22px; }.trend-chart { height: 300px; } }
+@media (min-width: 1500px) { .main-content { padding-left: 42px; padding-right: 42px; } .kpi-card { min-height: 148px; padding: 20px 22px; }.trend-chart { height: 300px; }.calendar-charts-grid .bar-chart { height: 300px; } }
 @media (max-width: 1180px) { .main-content { padding: 0 22px 24px; }.filters { gap: 11px; }.filter-title { min-width: 105px; }.main-grid { grid-template-columns: minmax(280px,.85fr) minmax(0,1.3fr); }.ranking-panel,.trend-panel,.chart-panel { padding: 17px; }.legend-pills { flex-direction: column; gap: 6px; }.kpi-grid { gap: 10px; }.kpi-card { padding: 15px; } }
 @media (max-width: 900px) { .main-grid { grid-template-columns: 1fr; }.ranking-list { display: grid; grid-template-columns: 1fr 1fr; column-gap: 18px; }.ranking-panel .panel-bottom-note { margin-top: 18px; }.filters { flex-wrap: wrap; }.filter-title { flex: 1 0 100%; }.filter-control { min-width: 100px; }.reset-btn { margin-top: 16px; }.kpi-grid { grid-template-columns: repeat(2,minmax(0,1fr)); } }
 @media (max-width: 620px) { .main-content { padding: 0 14px 22px; }.topbar { height: 64px; }.breadcrumb { display: none; }.mobile-brand { display: flex; align-items: center; gap: 9px; }.mobile-brand .brand-mark { width: 30px; height: 30px; font-size: 18px; border-radius: 9px; }.mobile-brand strong { font-family: var(--display); font-size: 13px; }.top-actions { gap: 9px; }.data-status { display: none; }.import-btn { padding: 9px 10px; }.import-btn span { display: none; }.page-heading { padding: 25px 0 19px; align-items: flex-start; flex-direction: column; gap: 13px; }.page-heading h1 { font-size: 27px; }.page-heading p { line-height: 1.6; }.filters { padding: 13px; gap: 10px; }.filter-title { min-width: 100%; }.filter-control { flex: 1 1 calc(50% - 8px); }.participant-filter { flex: 1 1 100%; }.reset-btn { margin-top: 0; flex: 1 1 100%; }.kpi-grid { gap: 9px; }.kpi-card { padding: 13px; min-height: 125px; }.kpi-label { font-size: 10px; }.kpi-value { font-size: 27px; }.kpi-value.smaller { font-size: 19px; }.kpi-foot { font-size: 9px; }.main-grid,.charts-grid,.streak-grid { grid-template-columns: 1fr; gap: 13px; }.ranking-panel,.trend-panel,.chart-panel { padding: 16px; }.ranking-list { grid-template-columns: 1fr; }.panel-heading h2 { font-size: 16px; }.panel-heading p { max-width: 270px; }.trend-panel .panel-heading { flex-direction: column; }.legend-pills { flex-direction: row; justify-content: flex-start; flex-wrap: wrap; }.trend-chart { height: 230px; }.bar-chart { height: 235px; }.section-title-row { align-items: flex-start; flex-direction: column; gap: 8px; }.section-title-row h2 { font-size: 18px; }.streak-card { padding: 18px; }.footer { flex-direction: column; gap: 8px; } }
@@ -60,9 +60,60 @@ a { color: inherit; text-decoration: none; }
 .tricks-ranking .rank-row:nth-child(3) .rank-number { color: #21162b; background: #b58bd1; }
 .tricks-ranking .rank-bar-fill { background: linear-gradient(90deg, #8264da, #bba8ff); }
 .tricks-ranking .rank-count,.tricks-ranking .panel-bottom-note span { color: #c1b2ff; }
+.calendar-panel { padding: 21px; margin-bottom: 18px; }
+.calendar-heading { align-items: flex-end; }
+.calendar-participant { display: flex; flex-direction: column; gap: 6px; width: min(250px, 42%); flex-shrink: 0; }
+.calendar-participant span { color: #7f8aa4; font-size: 10px; }
+.calendar-participant select { width: 100%; min-width: 0; border: 1px solid #333b50; border-radius: 8px; padding: 10px; color: #e6eaf4; background: #101624; outline: none; font: 11px var(--font); }
+.calendar-participant select:focus { border-color: var(--purple); }
+.calendar-month { margin: 24px 0 12px; color: #e9edf7; font: 600 14px var(--display); text-transform: capitalize; }
+.calendar-weekdays,.calendar-grid { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 8px; }
+.calendar-weekdays { margin-bottom: 8px; text-align: center; color: #7f8aa2; font-size: 10px; font-weight: 600; }
+.calendar-grid { list-style: none; padding: 0; margin: 0; }
+.calendar-day { min-width: 0; min-height: 76px; padding: 9px; display: flex; flex-direction: column; gap: 7px; border: 1px solid #283044; border-radius: 10px; background: #111725; }
+.calendar-day-empty { visibility: hidden; }
+.calendar-day.has-result { border-color: #3a4050; background: linear-gradient(145deg, #1b2232, #151b2a); }
+.calendar-day-number { color: #7f8aa2; font: 600 11px var(--display); }
+.calendar-day-results { display: flex; flex-wrap: wrap; gap: 3px; font-size: 20px; line-height: 1.1; }
+.calendar-footer { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-top: 16px; }
+.calendar-legend { display: flex; flex-wrap: wrap; gap: 16px; color: #9aa4b8; font-size: 10px; }
+.calendar-legend span span { margin-right: 4px; font-size: 14px; }
+.calendar-summary { margin: 0; color: #7f8aa2; font-size: 10px; text-align: right; }
+.calendar-charts-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.35fr); gap: 18px; margin-bottom: 27px; align-items: stretch; }
+.calendar-charts-grid .calendar-panel { min-width: 0; padding: 17px; margin-bottom: 0; display: flex; flex-direction: column; height: 100%; }
+.calendar-charts-grid .chart-panel { height: 100%; }
+.calendar-charts-grid .panel-heading h2 { font-size: 16px; }
+.calendar-charts-grid .panel-heading p { max-width: 250px; }
+.calendar-charts-grid .calendar-participant { width: min(155px, 42%); }
+.calendar-charts-grid .calendar-month { margin: 16px 0 9px; }
+.calendar-charts-grid .calendar-weekdays,.calendar-charts-grid .calendar-grid { gap: 5px; }
+.calendar-charts-grid .calendar-weekdays { margin-bottom: 5px; }
+.calendar-charts-grid .calendar-grid { flex: 1; grid-auto-rows: minmax(0, 1fr); }
+.calendar-charts-grid .calendar-day { position: relative; min-height: 0; padding: 4px; gap: 0; }
+.calendar-charts-grid .calendar-day-results { position: absolute; inset: 0; display: flex; flex-wrap: wrap; align-content: center; align-items: center; justify-content: center; font-size: 17px; }
+.calendar-charts-grid .calendar-month { margin: 10px 0 6px; }
+.calendar-charts-grid .calendar-footer { margin-top: 8px; }
+.calendar-charts-grid .calendar-legend { gap: 10px; }
+.calendar-charts-grid .calendar-summary { font-size: 9px; }
+.calendar-charts-grid .chart-panel { min-width: 0; }
+.calendar-charts-grid .bar-chart { height: 260px; }
+@media (max-width: 620px) {
+  .calendar-panel { padding: 16px; }
+  .calendar-heading { align-items: stretch; flex-direction: column; }
+  .calendar-participant { width: 100%; }
+  .calendar-weekdays,.calendar-grid { gap: 4px; }
+  .calendar-day { min-height: 57px; padding: 6px 4px; border-radius: 7px; gap: 5px; }
+  .calendar-day-number { font-size: 10px; }
+  .calendar-day-results { font-size: 15px; gap: 1px; }
+  .calendar-footer { align-items: flex-start; flex-direction: column; }
+  .calendar-summary { text-align: left; }
+}
 @media (max-width: 900px) {
-  .ranking-grid,.story-play-grid { grid-template-columns: 1fr; }
+  .ranking-grid,.story-play-grid,.calendar-charts-grid { grid-template-columns: 1fr; }
   .story-play-grid .chart-panel,.story-play-grid .trend-panel { padding: 16px; }
+  .calendar-charts-grid .calendar-panel { padding: 16px; }
+  .calendar-charts-grid .calendar-participant { width: 100%; }
+  .calendar-charts-grid .calendar-day { min-height: 57px; padding: 6px 4px; }
 }
 
 .brand-mark { background: linear-gradient(145deg, #ffad33, #e85d04); box-shadow: 0 7px 22px #f9731640; }
